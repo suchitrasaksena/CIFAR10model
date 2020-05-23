@@ -19,6 +19,8 @@ Y_train = np_utils.to_categorical(y_train, n_classes)
 Y_test = np_utils.to_categorical(y_test, n_classes)
 print("Shape after one-hot encoding: ", Y_train.shape)
 
+model.add(Conv2D(50, kernel_size=(3,3), strides=(1,1), padding='same', activation='relu'))
+
 model.add(Conv2D(75, kernel_size=(3,3), strides=(1,1), padding='same', activation='relu'))
 model.add(MaxPool2D(pool_size=(2,2)))
 model.add(Dropout(0.25))

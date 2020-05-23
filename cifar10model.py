@@ -36,5 +36,10 @@ model.add(Dense(10, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer='adam')
 
-model.fit(X_train, Y_train, batch_size=128, epochs=10, validation_data=(X_test, Y_test))
+history = model.fit(X_train, Y_train, batch_size=128, epochs=10, validation_data=(X_test, Y_test))
 
+model.save("cifarmodel")
+
+f = open ("cifar_accuracy.txt",'w')
+f.write('%d' % int(history.history['accuracy'][0] * 100))
+f.close()

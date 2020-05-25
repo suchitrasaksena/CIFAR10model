@@ -29,8 +29,6 @@ print("Shape after one-hot encoding: ", Y_train.shape)
 
 # building a linear stack of layers with the sequential model
 model = Sequential()
-# flatten output of conv
-model.add(Flatten())
 # hidden layer
 model.add(Dense(100, activation='relu'))
 # output layer

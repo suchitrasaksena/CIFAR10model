@@ -44,6 +44,6 @@ history = model.fit(X_train, Y_train, batch_size=128, epochs=10, validation_data
 
 model.save("mnistmodel")
 
-f = open ("cifar_accuracy.txt",'w')
-f.write('%d' % int(history.history['accuracy'][0] * 100))
+f = open ("accuracy.txt",'w')
+f.write(history.history['accuracy'][0] * 100)
 f.close()

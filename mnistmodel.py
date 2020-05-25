@@ -3,6 +3,9 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Conv2D, MaxPool2D
 from keras.utils import np_utils
 
+from sklearn.metrics import accuracy_score
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+
 X_train = X_train.reshape(60000, 784)
 X_test = X_test.reshape(10000, 784)
 X_train = X_train.astype('float32')

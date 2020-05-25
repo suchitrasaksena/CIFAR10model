@@ -43,6 +43,6 @@ history = model.fit(X_train, Y_train, batch_size=128, epochs=10, validation_data
 model.save("mnistmodel")
 
 import numpy as np
-f = open("accuracy.txt",'w')
+f = open("accuracy",'w')
 f.write(np.array2string(history.history['accuracy'][0] * 100))
 f.close()

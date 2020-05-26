@@ -3,9 +3,9 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Conv2D, MaxPool2D, Flatten
 from keras.utils import np_utils
 
-from sklearn.metrics import accuracy_score
 
-(X_train, y_train), (X_test, y_test) = mnist.load_data()
+
+from sklearn.metrics import accuracy_score
 
 
 X_train = X_train.reshape(60000, 784)
@@ -16,13 +16,20 @@ X_test = X_test.astype('float32')
 X_train /= 255
 X_test /= 255
 
+
 n_classes = 10
+print("Shape before one-hot encoding: ", y_train.shape)
 Y_train = np_utils.to_categorical(y_train, n_classes)
 Y_test = np_utils.to_categorical(y_test, n_classes)
+print("Shape after one-hot encoding: ", Y_train.shape)
+
 
 model = Sequential()
-model.add(Dense(100,input_shape = (784,), 
+
+model.add(Dense(100, input_shape=(784,), activation='relu'))
 model.add(Dense(10, activation='softmax'))
+
+model.summary()
 
 model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer='adam')
 
